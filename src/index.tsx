@@ -1,32 +1,50 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-// Arrow Function
-const Title = () => <h1>Hello Title Component</h1>
+type HeaderProps = {
+    text: string
+    leftPart: string
+    rightPart: string
+    order?: number
+}
 
-const Content = () => (
-    <div>
-        <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime hic
-            facilis libero assumenda aperiam dolor animi nobis suscipit tempora
-            vel, explicabo iusto laborum? Similique ratione rem quia.
-            Consequuntur, nobis doloribus.
-        </p>
-        <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime hic
-            facilis libero assumenda aperiam dolor animi nobis suscipit tempora
-            vel, explicabo iusto laborum? Similique ratione rem quia.
-            Consequuntur, nobis doloribus.
-        </p>
-    </div>
-)
+type ContentType = {
+    title: string
+    text1: string
+    text2: string
+}
+
+const Header = (props: HeaderProps) => {
+    return (
+        <h1>
+            {props.order} {props.leftPart} {props.text} {props.rightPart}
+        </h1>
+    )
+}
+
+const Content = (props: ContentType) => {
+    return (
+        <>
+            <h2>{props.title}</h2>
+            <p>{props.text1}</p>
+            <p>{props.text2}</p>
+        </>
+    )
+}
 
 const App = () => {
     return (
-        <div>
-            <Title />
-            <Content />
-        </div>
+        <>
+            <Header order={3} text="Title" leftPart="Hello" rightPart="Test" />
+            <Header text="App" leftPart="Hi" rightPart="Bla-Bla" />
+            <Header text="React" leftPart="Bye-bye" rightPart="Rainbow" />
+            <Content title="Content 1" text1="hello 1" text2="Hello 2" />
+            <Content
+                title="Content 2"
+                text1="hello 1"
+                text2="Hello 2 lorem blalb alblablbl"
+            />
+        </>
     )
 }
 
