@@ -3,17 +3,27 @@ import './ProductListItem.css'
 
 type Props = {
     title: string
+    description: string
+    type: string
+    capacity: string
+    price: number
 }
 
-const ProductListItem = ({ title }: Props) => {
+const ProductListItem = ({
+    title,
+    description,
+    type,
+    capacity,
+    price,
+}: Props) => {
     return (
         <Card variant="outlined" className="product-list-item">
             <CardContent>
                 <h3 className="product-title">{title}</h3>
-                <p className="product-description">This is iPhone 15</p>
-                <div className="product-features">Type: phone</div>
-                <div className="product-features">Capacity: 64Gb</div>
-                <div className="product-price">$ 800</div>
+                <p className="product-description">{description}</p>
+                <div className="product-features">Type: {type}</div>
+                <div className="product-features">Capacity: {capacity}Gb</div>
+                <div className="product-price">$ {price}</div>
                 <div className="btns-wrapper">
                     <Button variant="outlined">Add to cart</Button>
                 </div>
