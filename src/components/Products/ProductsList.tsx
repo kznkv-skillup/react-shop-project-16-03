@@ -4,8 +4,6 @@ import { productsArray } from 'utils/productsArray'
 
 type Props = {}
 
-// console.log(productsArray)
-
 const ProductsList = (props: Props) => {
     return (
         <>
