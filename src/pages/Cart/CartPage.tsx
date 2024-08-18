@@ -1,43 +1,41 @@
-import { Container } from '@mui/material'
-import { getProductsObject, Product, productsArray } from 'utils/productsArray'
+import { Container, Grid, Typography } from '@mui/material'
+import CartProductList from 'components/CartProductList/CartProductList'
+import CartProductListItemExtended from 'components/CartProductList/CartProductListItemExtended'
+import CartTotal from 'components/CartTotal/CartTotal'
 
 type Props = {
     productsInCart: {
         [id: number]: number
     }
-    productsObject?: {
-        [id: number]: Product
-    }
 }
 
-const CartPage = ({
-    productsInCart,
-    productsObject = getProductsObject(productsArray),
-}: Props) => {
+const CartPage = ({ productsInCart }: Props) => {
     return (
         <div>
             <Container>
-                <div>Cart</div>
-                <div>
-                    {Object.keys(productsInCart).map((productId) => (
-                        <div key={productId}>
-                            {productsObject[+productId].title}:{' '}
-                            {productsInCart[+productId]} : price for one item -{' '}
-                            {productsObject[+productId].price}$
-                        </div>
-                    ))}
-                </div>
-                <div>
-                    Total:{' '}
-                    {Object.keys(productsInCart).reduce(
-                        (total, productId) =>
-                            total +
-                            productsInCart[+productId] *
-                                productsObject[+productId].price,
-                        0
-                    )}
-                    $
-                </div>
+                <Typography
+                    variant="h4"
+                    component={'h1'}
+                    sx={{
+                        margin: '40px 0',
+                    }}
+                >
+                    Cart
+                </Typography>
+                <Grid
+                    container
+                    spacing={4}
+                    sx={{
+                        marginBottom: '30px',
+                    }}
+                >
+                    <CartProductList
+                        productsInCart={productsInCart}
+                        CartItem={CartProductListItemExtended}
+                    />
+                </Grid>
+
+                <CartTotal productsInCart={productsInCart} />
             </Container>
         </div>
     )
