@@ -39,9 +39,6 @@ const App = () => {
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
-            <button onClick={() => removeProductFromCart(1)}>
-                Delete (id:1)
-            </button>
             <Routes>
                 <Route
                     path="/"
