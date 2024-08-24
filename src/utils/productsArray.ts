@@ -21,7 +21,7 @@ export const productsArray: Product[] = [
     {
         id: 2,
         title: 'iPhone 14',
-        description: '<div class="red">This is iPhone 14</div>',
+        description: 'This is iPhone 14',
         type: 'phone',
         capacity: '128',
         price: 500,
