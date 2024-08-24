@@ -41,12 +41,7 @@ const ProductListItem = ({
                     <img src={image} alt="" />
                 </div>
                 <h3 className="product-title">{title}</h3>
-                <p
-                    className="product-description"
-                    dangerouslySetInnerHTML={{
-                        __html: description,
-                    }}
-                ></p>
+                <p className="product-description">{description}</p>
                 <div className="product-features">Type: {type}</div>
 
                 <div className="product-features">Capacity: {capacity}Gb</div>
