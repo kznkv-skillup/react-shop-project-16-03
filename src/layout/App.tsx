@@ -49,6 +49,13 @@ const App = () => {
         }))
     }
 
+    const toggleLikeState = (id: number) => {
+        setProductsLikeState((prevState) => ({
+            ...prevState,
+            [id]: !prevState[id],
+        }))
+    }
+
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
@@ -60,6 +67,7 @@ const App = () => {
                         <Home
                             addProductToCart={addProductToCart}
                             productsLikeState={productsLikeState}
+                            toggleLikeState={toggleLikeState}
                         />
                     }
                 />
@@ -70,6 +78,8 @@ const App = () => {
                             productsInCart={productsInCart}
                             removeProductFromCart={removeProductFromCart}
                             changeProductQuantity={changeProductQuantity}
+                            productsLikeState={productsLikeState}
+                            toggleLikeState={toggleLikeState}
                         />
                     }
                 />

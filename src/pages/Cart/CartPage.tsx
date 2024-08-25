@@ -7,14 +7,20 @@ type Props = {
     productsInCart: {
         [id: number]: number
     }
+    productsLikeState: {
+        [id: number]: boolean
+    }
     removeProductFromCart: (id: number) => void
     changeProductQuantity: (id: number, quantity: number) => void
+    toggleLikeState: (id: number) => void
 }
 
 const CartPage = ({
     productsInCart,
     removeProductFromCart,
     changeProductQuantity,
+    toggleLikeState,
+    productsLikeState,
 }: Props) => {
     return (
         <div>
@@ -40,6 +46,8 @@ const CartPage = ({
                         CartItem={CartProductListItemExtended}
                         removeProductFromCart={removeProductFromCart}
                         changeProductQuantity={changeProductQuantity}
+                        toggleLikeState={toggleLikeState}
+                        productsLikeState={productsLikeState}
                     />
                 </Grid>
 
