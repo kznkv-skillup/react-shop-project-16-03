@@ -6,6 +6,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { useAppDispatch, useAppSelector } from 'store/hooks'
 import { addLike, removeLike } from 'store/likeSlice'
+import { addProductToCart } from 'store/cartSlice'
 
 type Props = {
     id: number
@@ -26,7 +27,6 @@ const ProductListItem = ({
     capacity,
     price,
     image,
-    addProductToCart,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
 
@@ -74,7 +74,9 @@ const ProductListItem = ({
                 <div className="btns-wrapper">
                     <Button
                         variant="outlined"
-                        onClick={() => addProductToCart(id, count)}
+                        onClick={() =>
+                            dispatch(addProductToCart({ id, count }))
+                        }
                     >
                         Add to cart
                     </Button>
