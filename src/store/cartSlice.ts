@@ -21,9 +21,17 @@ export const cartSlice = createSlice({
         }),
         removeProductFromCart: (prevState, action) =>
             omit(prevState, action.payload),
+        changeProductQuantity: (state, action) => ({
+            ...state,
+            [action.payload.id]: action.payload.quantity,
+        }),
     },
 })
 
-export const { addProductToCart, removeProductFromCart } = cartSlice.actions
+export const {
+    addProductToCart,
+    removeProductFromCart,
+    changeProductQuantity,
+} = cartSlice.actions
 
 export default cartSlice.reducer
