@@ -2,6 +2,7 @@ import { Container, Grid, Typography } from '@mui/material'
 import CartProductList from 'components/CartProductList/CartProductList'
 import CartProductListItemExtended from 'components/CartProductList/CartProductListItemExtended'
 import CartTotal from 'components/CartTotal/CartTotal'
+import { Link } from 'react-router-dom'
 import { useAppSelector } from 'store/hooks'
 
 type Props = {
@@ -42,6 +43,7 @@ const CartPage = ({ removeProductFromCart, changeProductQuantity }: Props) => {
                 </Grid>
 
                 <CartTotal productsInCart={productsInCart} />
+                <Link to="/checkout">Proceed to checkout</Link>
             </Container>
         </div>
     )
