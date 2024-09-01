@@ -7,6 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { useAppDispatch, useAppSelector } from 'store/hooks'
 import { addLike, removeLike } from 'store/likeSlice'
 import { addProductToCart } from 'store/cartSlice'
+import { Link } from 'react-router-dom'
 
 type Props = {
     id: number
@@ -57,7 +58,9 @@ const ProductListItem = ({
                 >
                     {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                 </Button>
-                <h3 className="product-title">{title}</h3>
+                <h3 className="product-title">
+                    <Link to={`/products/${id}`}>{title}</Link>
+                </h3>
                 <p className="product-description">{description}</p>
                 <div className="product-features">Type: {type}</div>
 
